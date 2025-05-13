@@ -96,25 +96,25 @@ if (fd == -1) {
 
 #define MAX 128
 
-char my_string[MAX];
-char class_name[] = "System Programming";
-int global_integer = 3;
+char my_string[MAX]; // .bss (uninitialized data segment) my_string is a global, uninitialized array, so it's stored in the BSS (Block Started by Symbol) segment, which holds zero-initialized data.
+char class_name[] = "System Programming"; // .data (initialized data segment) This is a global, initialized array. The data (string) is stored in the data segment.
+int global_integer = 3; // .data Global variable with an initial value is also stored in the data segment.
 
-void print_global() {
+void print_global() { // .text (code segment)
   printf("%d\n", global_integer);
 }
 
-int square(int x) {
-  int result = x * x;
+int square(int x) { // .text (code segment)
+  int result = x * x;  // Stack (local variable) result is a local variable, so it's stored on the stack during function execution.
 
   return result;
 }
 
 int main (int argc, char *argv[]) {
-  char *dynamic_memory;
-  dynamic_memory = malloc(MAX);
-  free(dynamic_memory);
-  dynamic_memory = NULL;
+  char *dynamic_memory; // Stack (pointer variable) This is a local pointer variable, so it's stored on the stack.
+  dynamic_memory = malloc(MAX); // Heap (allocated memory) malloc() allocates memory dynamically during runtime from the heap.
+  free(dynamic_memory); // Heap (memory is freed) 
+  dynamic_memory = NULL; // Stack (pointer reassignment)
 
   return 0;
 }
