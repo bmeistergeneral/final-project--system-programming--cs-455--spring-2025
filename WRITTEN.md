@@ -166,7 +166,13 @@ Allowing additional fields (e.g., password expiration) -->
 -rw-r--r-- 1  johnnythunders  staff  3476 May  1 11:57 README.md
 ```
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- -rw-r--r--  
+
+This corresponds to 0644 (Owner: read/write; Group: read; Others: read).
+
+To give full access (read/write/execute to everyone), use:
+
+chmod 777 README.md -->
 
 ---
 
