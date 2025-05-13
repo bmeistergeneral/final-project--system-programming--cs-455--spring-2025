@@ -36,7 +36,27 @@ for (int i = 0; argv[i] != NULL; i++) {
 
 ### 3. When a system call is made the CPU changes from user mode to kernel mode. Why?
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- Modern operating systems operate in at least two CPU modes: user mode and kernel mode. User mode restricts access to critical system resources, while kernel mode has unrestricted access to all hardware and memory.
+
+When a program in user mode needs to perform an operation that requires higher privileges—such as reading from a file, allocating memory, or accessing devices—it must make a system call. System calls serve as controlled gateways to kernel functionality.
+
+What happens during a system call:
+
+The process triggers a special CPU instruction (like int 0x80 or syscall on x86 architectures).
+
+This causes a trap (software interrupt), which tells the CPU to switch from user mode to kernel mode.
+
+The kernel takes control, verifies permissions, performs the requested operation, and returns control to the user process.
+
+This transition ensures user programs can't directly access or modify critical system data, bugs in user programs can't crash the entire system.
+
+The kernel manages hardware, filesystems, memory, etc. 
+
+Example:
+
+int fd = open("file.txt", O_RDONLY); // open() is a system call
+
+-->
 
 ---
 
