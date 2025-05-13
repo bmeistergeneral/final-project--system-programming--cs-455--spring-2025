@@ -142,7 +142,11 @@ int *c = realloc(a, 20 * sizeof(int)); // Resized
 
 ### 7. Explain the difference between `brk` and `sbrk`. Why is `malloc` a better option of `brk`, and `sbrk`?
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- brk(ptr) sets the end of the data segment to ptr
+
+sbrk(increment) increases or decreases the program's data segment by increment
+
+These functions are low-level memory management tools and not thread-safe. malloc() is better because it uses brk/sbrk or mmap internally with safety and efficiency, is portable and standardized, and handles metadata and fragmentation -->
 
 ---
 
