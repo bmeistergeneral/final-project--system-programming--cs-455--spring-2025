@@ -26,7 +26,11 @@ munmap(mapped, 4096); // immediately returns memory back to the OS
 
 ### 2. In a C program, why does `argv[argv]` return `NULL`?
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- In C, the argv array is an array of argc + 1 pointers to strings. The last element, argv[argc], is guaranteed by the C standard to be NULL. This acts as a sentinel to mark the end of the argument list. So, argv[argc] returns NULL by design and is useful when iterating through arguments in a loop.
+
+for (int i = 0; argv[i] != NULL; i++) {
+    printf("Argument %d: %s\n", i, argv[i]);
+} -->
 
 ---
 
