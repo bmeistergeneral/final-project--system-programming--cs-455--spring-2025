@@ -178,4 +178,12 @@ chmod 777 README.md -->
 
 ### 10. What does `kill -9 1` do? Explain in detail
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- PID 1 is the init or systemd process, responsible for starting the system and managing all other processes. kill -9 1 attempts to send a SIGKILL to process 1, which is not advisable.
+
+On most systems, this will fail if not root.
+
+On systems like containers (e.g., Docker), this may shut down the entire container.
+
+On a real OS, killing PID 1 can crash or hang the system.
+
+kill -9 sends an uncatchable, unblockable termination signal. Since PID 1 is critical, its termination leads to system instability or shutdown. -->
