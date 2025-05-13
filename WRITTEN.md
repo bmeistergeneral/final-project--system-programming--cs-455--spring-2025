@@ -124,7 +124,19 @@ int main (int argc, char *argv[]) {
 
 ### 6. Explain the difference between `malloc`, `calloc`, `realloc`
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- malloc(size) allocates memory of size bytes and leaves it uninitialized.
+
+calloc(n, size) allocates memory for n elements each of size bytes and initializes them to zero.
+
+realloc(ptr, new_size) resizes the memory block pointed to by ptr to new_size bytes, copying existing data. 
+
+Example:
+
+int *a = malloc(10 * sizeof(int)); // Uninitialized
+int *b = calloc(10, sizeof(int));  // Zero-initialized
+int *c = realloc(a, 20 * sizeof(int)); // Resized
+
+-->
 
 ---
 
