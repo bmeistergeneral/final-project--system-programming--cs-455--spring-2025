@@ -4,7 +4,23 @@
 
 ### 1. Describe what happens to memory released by the OS with regard to virtual memory
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- The memory is returned to the process’s heap but is not necessarily released to the OS. Most implementations (like glibc's malloc) maintain an internal memory pool for efficiency. Freed memory is kept in this pool and reused for future malloc() calls. This means the virtual memory space still reserves that region, even though the memory is marked as available by the allocator.
+
+For memory unmapped with munmap() or released through mmap() allocations: These memory regions are typically returned to the OS immediately. The virtual address space of the process is updated, and the pages may be marked as available for reuse by other processes.
+
+Virtual memory refers to the address space visible to a process. When memory is freed, that virtual space may be released or remapped. However, the physical memory (RAM) backing those pages may not be released immediately. The operating system may hold onto it temporarily to optimize performance, especially if it anticipates that the memory may be reused soon.
+
+Many OSes use lazy reclamation, meaning freed memory is not immediately zeroed or returned to the free list. Instead, it may be cached to reduce the overhead of future allocations. Background processes may zero these pages over time.
+
+Example:
+
+char *block = malloc(1024 * 1024); // allocate 1 MB
+free(block); // block is now available to malloc again, but may not return to OS
+
+void *mapped = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+munmap(mapped, 4096); // immediately returns memory back to the OS
+
+-->
 
 ---
 
