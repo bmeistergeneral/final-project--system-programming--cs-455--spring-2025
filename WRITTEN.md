@@ -152,7 +152,11 @@ These functions are low-level memory management tools and not thread-safe. mallo
 
 ### 8. Explain why a shadow password file is needed
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- A shadow password file (/etc/shadow) stores password hashes securely. Unlike /etc/passwd, which is world-readable, /etc/shadow is only accessible by root. This enhances security by:
+
+Preventing hash exposure to unprivileged users
+
+Allowing additional fields (e.g., password expiration) -->
 
 ---
 
