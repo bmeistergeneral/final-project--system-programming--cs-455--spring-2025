@@ -62,7 +62,29 @@ int fd = open("file.txt", O_RDONLY); // open() is a system call
 
 ### 4. Explain the relationship between the return value of a system call and the global variable `errno`
 
-REPLACE THIS CONTENT WITH YOUR ANSWER
+<!-- In Unix-like systems, system calls typically return -1 on failure and set the global variable errno to indicate the type of error that occurred. This variable is defined in <errno.h> and contains error codes like EACCES (permission denied), ENOENT (no such file or directory), ENOMEM (not enough memory), etc.
+
+On success, system calls return a non-negative value, and errno is left unchanged. It is not reset to 0, so its previous value remains.
+
+On failure, errno is set by the kernel to provide additional context for the failure. Programmers should not manually assign a value to errno; it is set automatically by failing system calls and library functions.
+
+The standard way to check errno is immediately after detecting a failure (like checking for a -1 return value). The perror() or strerror() functions can be used to print human-readable error messages based on errno. 
+
+Example: 
+
+#include <stdio.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <string.h>
+
+int fd = open("nonexistent.txt", O_RDONLY);
+if (fd == -1) {
+    printf("Error opening file: %s
+", strerror(errno));
+    // or use perror("open");
+}
+
+-->
 
 ---
 
